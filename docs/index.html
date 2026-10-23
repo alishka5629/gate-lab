@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; worker-src 'none'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Four logic gates at the heart of the digital world. Toggle the inputs, explore the circuits and test your logic.">
+  <meta name="color-scheme" content="light">
+  <title>GATE LAB — Logic in action</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./logic.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#lab">Skip to the lab</a>
+  <header class="topbar wrap">
+    <a class="brand" href="#" aria-label="GATE LAB, back to top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 6h11a10 10 0 0 1 0 20H4z"/><path d="M0 11h5M0 21h5M25 16h7"/></svg>GATE<span>LAB</span></a>
+    <nav aria-label="Main navigation"><a href="#lab">The lab</a><a href="#guide">How it works</a><a href="#challenge">Test yourself <span aria-hidden="true">↗</span></a></nav>
+    <span class="status"><i></i> THINK IN BINARY</span>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="eyebrow"><span>THE DIGITAL WORLD / FROM THE GROUND UP</span><span>01 — 04</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy"><h1 id="hero-title">Big logic.<br>Small<br><span class="accent">decisions.</span><svg class="title-arrow" viewBox="0 0 90 90" aria-hidden="true"><path d="M12 76 75 13M12 13h63v63"/></svg></h1><p>Zero or one. Yes or no. Four simple gates<br class="desktop-br"> that make the digital world possible.</p><a class="primary" href="#lab">Switch on your logic <span aria-hidden="true">↗</span></a><span class="hero-note">No pages of equations. Just try it.</span></div>
+        <div class="hero-art" aria-hidden="true"><div class="art-top"><span>INSIDE THE MACHINE</span><span>● LIVE LOGIC</span></div><svg class="art-circuit" viewBox="0 0 490 360"><defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#ffffff" opacity=".12"/></pattern></defs><rect width="490" height="360" fill="url(#dots)"/><g class="art-wire"><path d="M50 90h100v55h55M50 255h100v-60h55M305 170h80v-80h60"/><path class="art-wire-dim" d="M150 255h75v55h220"/></g><path class="art-gate" d="M205 112h47a58 58 0 0 1 0 116h-47z"/><text x="253" y="181" class="art-label">&amp;</text><g class="art-node"><circle cx="50" cy="90" r="25"/><circle cx="50" cy="255" r="25"/><circle cx="445" cy="90" r="25"/></g><g class="art-bits"><text x="50" y="99">1</text><text x="50" y="264">1</text><text x="445" y="99">1</text></g><circle cx="150" cy="255" r="5" fill="#d8fb52"/><circle cx="445" cy="310" r="7" fill="#53574d"/><text x="37" y="45" class="art-small">INPUT A</text><text x="37" y="214" class="art-small">INPUT B</text><text x="398" y="45" class="art-small">OUTPUT</text></svg><div class="art-bottom"><span>1 <span class="art-operator">AND</span> 1 <span class="art-operator">=</span> 1</span><span class="art-caption">IT ALL STARTS<br>WITH A SINGLE BIT.</span></div></div>
+      </div>
+      <div class="hero-foot"><span>FOUR BUILDING BLOCKS OF LOGIC</span><div><span>NOT <b>¬</b></span><span>AND <b>∧</b></span><span>OR <b>∨</b></span><span>XOR <b>⊕</b></span></div><a href="#lab" aria-label="Go to the lab">↓</a></div>
+    </section>
+    <section class="lab-section" id="lab" aria-labelledby="lab-title"><div class="wrap">
+      <div class="section-label"><span>01 / EXPERIMENT</span><span>INTERACTIVE PLAYGROUND</span></div>
+      <div class="section-heading"><h2 id="lab-title">Your first<br>logic experiment<span>.</span></h2><p>Pick a gate and toggle its inputs.<br>The circuit and table update instantly.</p></div>
+      <div class="gate-tabs" role="group" aria-label="Logic gate">
+        <button class="gate-tab active" data-gate="AND" aria-pressed="true"><span class="tab-number">01</span><b>AND</b><span class="tab-meaning">BOTH</span><span class="tab-symbol">∧</span></button>
+        <button class="gate-tab" data-gate="OR" aria-pressed="false"><span class="tab-number">02</span><b>OR</b><span class="tab-meaning">EITHER</span><span class="tab-symbol">∨</span></button>
+        <button class="gate-tab" data-gate="XOR" aria-pressed="false"><span class="tab-number">03</span><b>XOR</b><span class="tab-meaning">EXCLUSIVE OR</span><span class="tab-symbol">⊕</span></button>
+        <button class="gate-tab" data-gate="NOT" aria-pressed="false"><span class="tab-number">04</span><b>NOT</b><span class="tab-meaning">INVERT</span><span class="tab-symbol">¬</span></button>
+      </div>
+      <div class="experiment">
+        <div class="circuit-panel"><div class="panel-top"><span><i></i> SIGNAL FLOW</span><span id="formula">Y = A ∧ B</span></div>
+          <div class="circuit-stage">
+            <div class="input-controls"><div class="input-control"><span>INPUT A</span><button id="input-a" class="bit-toggle" aria-label="Input A" aria-pressed="false"><span class="bit-number">0</span><span class="switch-track"><i></i></span></button></div><div class="input-control" id="input-b-group"><span>INPUT B</span><button id="input-b" class="bit-toggle" aria-label="Input B" aria-pressed="false"><span class="bit-number">0</span><span class="switch-track"><i></i></span></button></div></div>
+            <svg id="live-circuit" viewBox="0 0 440 300" role="img" aria-labelledby="circuit-title"><title id="circuit-title">AND circuit</title><g class="wire" id="wire-a"><path d="M0 85h83v35h55"/><circle cx="0" cy="85" r="4"/></g><g class="wire" id="wire-b"><path d="M0 215h83v-35h55"/><circle cx="0" cy="215" r="4"/></g><g class="wire" id="wire-out"><path d="M270 150h128"/><circle cx="398" cy="150" r="5"/></g><g id="gate-shape" class="gate-shape"><path id="shape-main" d="M138 90h65a60 60 0 0 1 0 120h-65z"/><path id="shape-extra" d="M125 90 Q165 150 125 210" hidden/><circle id="not-bubble" cx="280" cy="150" r="10" hidden/></g><text id="gate-label" x="201" y="160" text-anchor="middle">AND</text></svg>
+            <div class="output-control"><span>OUTPUT Y</span><div id="output-bit" class="output-bit">0</div><span id="output-state">SIGNAL OFF</span></div>
+          </div>
+          <div class="circuit-bottom"><span class="signal-legend"><i></i> 0 — no signal <i class="live-dot"></i> 1 — signal on</span><button id="reset" class="text-button">Reset ↺</button></div>
+          <p class="sr-only" id="live-result" role="status" aria-live="polite">AND: A 0, B 0. Output 0.</p>
+        </div>
+        <aside class="truth-panel"><div class="table-heading"><h3>Truth table</h3><span>LIVE</span></div><p>Every input combination and its output.</p><table><caption class="sr-only" id="table-caption">AND truth table</caption><thead><tr><th scope="col">A</th><th scope="col" id="b-heading">B</th><th scope="col">Y <span>↗</span></th></tr></thead><tbody id="truth-body"></tbody></table><div class="truth-note"><span class="note-square"></span><span>The current combination is highlighted.<br>Toggle an input to change it.</span></div></aside>
+      </div>
+      <div class="gate-explanation"><span class="explanation-icon" id="explanation-symbol">∧</span><div><h3 id="explanation-title">AND — it takes both.</h3><p id="explanation-text">The output is 1 only when both inputs are 1. In every other case, it is 0.</p></div><div class="example"><span>IN THE REAL WORLD</span><p id="example-text">A lamp with two switches in series: both switches must be closed for the light to turn on.</p></div></div>
+    </div></section>
+    <section class="guide wrap" id="guide" aria-labelledby="guide-title"><div class="section-label"><span>02 / UNDERSTAND</span><span>FOUR WAYS TO DECIDE</span></div><div class="section-heading"><h2 id="guide-title">One question.<br>Four rules<span>.</span></h2><p>Logic gates take bits as inputs<br>and return one bit according to their rule.</p></div>
+      <div class="guide-grid"><article class="guide-card"><div class="card-top"><span>01 / AND</span><span>∧</span></div><h3>Together<br>means yes.</h3><p>The output is 1 only when<br>both inputs are 1.</p><div class="binary-example"><span>1</span><b>∧</b><span>1</span><b>=</b><span class="binary-result">1</span></div><span class="card-footer">BOTH CONDITIONS ARE MET</span></article>
+      <article class="guide-card"><div class="card-top"><span>02 / OR</span><span>∨</span></div><h3>One is<br>enough.</h3><p>The output is 1 if either input is 1.<br>Two ones also give 1.</p><div class="binary-example"><span>1</span><b>∨</b><span>0</span><b>=</b><span class="binary-result">1</span></div><span class="card-footer">AT LEAST ONE CONDITION</span></article>
+      <article class="guide-card"><div class="card-top"><span>03 / XOR</span><span>⊕</span></div><h3>Different?<br>Then yes.</h3><p>The output is 1 when the inputs differ.<br>Matching inputs give 0.</p><div class="binary-example"><span>1</span><b>⊕</b><span>1</span><b>=</b><span class="binary-result zero">0</span></div><span class="card-footer">EXACTLY ONE INPUT IS 1</span></article>
+      <article class="guide-card"><div class="card-top"><span>04 / NOT</span><span>¬</span></div><h3>The<br>opposite.</h3><p>One input. Its opposite<br>as the output. 0 → 1 and 1 → 0.</p><div class="binary-example"><b>¬</b><span>0</span><b>=</b><span class="binary-result">1</span></div><span class="card-footer">INVERT A SINGLE INPUT</span></article></div>
+      <div class="insight"><span class="insight-mark">!</span><p><strong>OR and XOR are different.</strong> When A = 1 and B = 1, OR gives 1, but XOR gives 0. For two-input XOR, exactly one input must be 1.</p><a href="#lab" id="compare-xor">Try XOR ↗</a></div>
+    </section>
+    <section class="challenge-section" id="challenge" aria-labelledby="quiz-title"><div class="wrap challenge-grid"><div class="challenge-copy"><span class="section-kicker">03 / TEST YOURSELF</span><h2 id="quiz-title">Got the signal<span>?</span></h2><p>Five quick questions.<br>Work out the output from the inputs and the gate.</p><div class="quiz-decoration" aria-hidden="true">0<span>↔</span>1</div></div><div class="quiz-card"><div class="quiz-top"><span id="quiz-progress">QUESTION 01 / 05</span><span id="quiz-score">CORRECT: 0</span></div><div class="progress-bars" aria-hidden="true"><i class="current"></i><i></i><i></i><i></i><i></i></div><h3 id="quiz-question">What is the output?</h3><div class="quiz-equation" id="quiz-equation">1 <span>XOR</span> 1 <span>=</span> ?</div><div class="quiz-answers" id="quiz-answers"><button data-answer="0">0 <span>No signal</span></button><button data-answer="1">1 <span>Signal on</span></button></div><p id="quiz-feedback" class="quiz-feedback" role="status" aria-live="polite">Choose one of the two answers.</p><button id="quiz-next" class="quiz-next" hidden>Next question ↗</button></div></div></section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#">GATE<span>LAB</span></a><p>Complex things begin with simple decisions.</p><a href="#">BACK TO TOP ↑</a></footer>
+  <noscript><p class="noscript">Enable JavaScript to use the interactive lab. You can still read the four gate rules on this page.</p></noscript>
+</body>
+</html>
